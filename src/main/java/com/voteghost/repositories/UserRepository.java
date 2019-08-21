@@ -1,4 +1,4 @@
-package com.voteghost.security;
+package com.voteghost.repositories;
 
 import com.voteghost.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;

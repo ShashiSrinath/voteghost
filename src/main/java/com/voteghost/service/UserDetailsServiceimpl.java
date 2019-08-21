@@ -2,7 +2,7 @@ package com.voteghost.service;
 
 import com.voteghost.domain.User;
 import com.voteghost.security.CustomSecurityUser;
-import com.voteghost.security.UserRepository;
+import com.voteghost.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

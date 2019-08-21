@@ -2,7 +2,7 @@ package com.voteghost.service;
 
 import com.voteghost.domain.User;
 import com.voteghost.security.Authority;
-import com.voteghost.security.UserRepository;
+import com.voteghost.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
