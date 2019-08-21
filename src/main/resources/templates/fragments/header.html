@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="headerElement" th:remove="tag">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+    </script>
+    <script src="/js/bootstrap.js"></script>
+</div>
+<div th:fragment="header" th:remove="tag">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><img th:src="@{/images/Vote_Ghost_header_logo.png}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="navbar-nav ml-auto">
+                <button class="btn btn-success btn-lg">Login</button>
+            </div>
+
+        </div>
+
+
+    </nav>
+</div>
+</body>
+</html>
