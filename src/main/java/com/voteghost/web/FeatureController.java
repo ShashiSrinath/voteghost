@@ -21,7 +21,9 @@ public class FeatureController {
 
     @GetMapping("/new")
     public String newFeature(ModelMap model) {
+        boolean newFeature = true;
         model.put("feature", new Feature());
+        model.put("newFeature",newFeature);
         return "feature";
     }
 
@@ -48,9 +50,11 @@ public class FeatureController {
         feature = featureService.updateFeature(feature,featureId);
         if (feature != null){
             model.put("feature", feature);
+            return "redirect:/products/" + feature.getProduct().getId() + "/features/" + feature.getId();
         }else {
             response.sendError(HttpStatus.NOT_FOUND.value(), "feature with id " + featureId + " was not found");
+            return "feature";
         }
-        return "feature";
+
     }
 }
