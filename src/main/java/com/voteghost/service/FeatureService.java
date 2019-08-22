@@ -44,7 +44,6 @@ public class FeatureService {
             Feature savedFeature = featureOpt.get();
             savedFeature.setTitle(feature.getTitle());
             savedFeature.setDescription(feature.getDescription());
-            savedFeature.setStatus(feature.getStatus());
 
             return featureRepo.save(savedFeature);
         } else {
