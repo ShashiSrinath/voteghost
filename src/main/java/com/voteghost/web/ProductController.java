@@ -45,7 +45,7 @@ public class ProductController {
     }
 
     @GetMapping("product/v/{encodedProductName}")
-    public String viewProduct(@PathVariable String encodedProductName,ModelMap model){
+    public String viewProduct(@PathVariable String encodedProductName,ModelMap model,HttpServletResponse response) throws IOException {
         try {
             String productName = URLDecoder.decode(encodedProductName , UTF_8.defaultCharset().name());
             Optional<Product> productOpt = productRepo.findByName(productName);
@@ -53,7 +53,7 @@ public class ProductController {
             if(productOpt.isPresent()){
                 model.put("product",productOpt.get());
             } else {
-
+                response.sendError(HttpStatus.NOT_FOUND.value() , "Product  not found" );
             }
         } catch (UnsupportedEncodingException e) {
             log.error("There Was A Error Decoding A Product Url",e);
