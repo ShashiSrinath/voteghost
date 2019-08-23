@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import sun.nio.cs.UTF_8;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Optional;
 
 @Controller
@@ -50,7 +52,7 @@ public class FeatureController {
         feature = featureService.updateFeature(feature,featureId);
         if (feature != null){
             model.put("feature", feature);
-            return "redirect:/products/" + feature.getProduct().getId() + "/features/" + feature.getId();
+            return "redirect:/product/v/" + URLEncoder.encode(feature.getProduct().getName() , UTF_8.defaultCharset().name()) ;
         }else {
             response.sendError(HttpStatus.NOT_FOUND.value(), "feature with id " + featureId + " was not found");
             return "feature";
