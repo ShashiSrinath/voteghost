@@ -52,7 +52,7 @@ public class FeatureController {
         feature = featureService.updateFeature(feature,featureId);
         if (feature != null){
             model.put("feature", feature);
-            return "redirect:/product/v/" + URLEncoder.encode(feature.getProduct().getName() , UTF_8.defaultCharset().name()) ;
+            return "redirect:/product/v/" + feature.getProduct().getId() ;
         }else {
             response.sendError(HttpStatus.NOT_FOUND.value(), "feature with id " + featureId + " was not found");
             return "feature";

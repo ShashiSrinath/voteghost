@@ -44,11 +44,11 @@ public class ProductController {
         return "product";
     }
 
-    @GetMapping("product/v/{encodedProductName}")
-    public String viewProduct(@PathVariable String encodedProductName,ModelMap model,HttpServletResponse response) throws IOException {
+    @GetMapping("product/v/{productId}")
+    public String viewProduct(@PathVariable Long productId,ModelMap model,HttpServletResponse response) throws IOException {
         try {
-            String productName = URLDecoder.decode(encodedProductName , UTF_8.defaultCharset().name());
-            Optional<Product> productOpt = productRepo.findByName(productName);
+            ;
+            Optional<Product> productOpt = productRepo.findById(productId);
 
             if(productOpt.isPresent()){
                 model.put("product",productOpt.get());
@@ -76,6 +76,6 @@ public class ProductController {
     @PostMapping("products/{productId}")
     public String saveProduct(@PathVariable Long productId , Product product){
         product = productRepo.save(product);
-        return "redirect:/products/"+product.getId() ;
+        return "redirect:/dashboard" ;
     }
 }
