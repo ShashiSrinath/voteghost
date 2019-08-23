@@ -1,6 +1,10 @@
 package com.voteghost.domain;
 
+import sun.nio.cs.UTF_8;
+
 import javax.persistence.*;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +14,7 @@ public class Product {
     private long id;
     private String name;
 
+
     @ManyToOne
     private User user;
 
@@ -17,6 +22,9 @@ public class Product {
     private Set<Feature> features = new HashSet();
 
     private boolean published;
+
+    @Column(length = 5000)
+    private String description;
 
     public long getId() {
         return id;
@@ -58,6 +66,14 @@ public class Product {
         this.published = published;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -68,4 +84,6 @@ public class Product {
                 ", published=" + published +
                 '}';
     }
+
+
 }

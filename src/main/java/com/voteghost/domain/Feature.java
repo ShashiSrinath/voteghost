@@ -8,6 +8,7 @@ public class Feature {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
+    @Column(length = 5000)
     private String description;
     private String status;
 
